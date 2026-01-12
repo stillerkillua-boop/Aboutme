@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #e5e5e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 750px;
+            background: #141414;
+            border: 1px solid #1f1f1f;
+            overflow: hidden;
+        }
+
+        .banner {
+            position: relative;
+            height: 220px;
+            background: url("banner.jpg") center / cover no-repeat;
+        }
+
+        .profile-pic {
+            position: absolute;
+            bottom: -55px;
+            left: 30px;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 4px solid #141414;
+            background: url("profile.jpg") center / cover no-repeat;
+        }
+
+        .header {
+            padding: 80px 30px 25px;
+            border-bottom: 1px solid #1f1f1f;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        .header span {
+            display: block;
+            margin-top: 6px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 30px;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            color: #cfcfcf;
+        }
+
+        .highlight {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Discord Button */
+        .discord {
+            padding: 0 30px 30px;
+        }
+
+        .discord a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            border: 1px solid #5865F2;
+            padding: 12px 26px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: 0.2s ease;
+        }
+
+        .discord a:hover {
+            background: #5865F2;
+            color: #ffffff;
+        }
+
+        .status {
+            border-top: 1px solid #1f1f1f;
+            padding: 20px 30px;
+            background: #101010;
+            font-size: 14px;
+            color: #9a9a9a;
+        }
+
+        .status strong {
+            color: #ff4d4d;
+        }
+
+        .footer {
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <div class="banner">
+            <div class="profile-pic"></div>
+        </div>
+
+        <div class="header">
+            <h1>About Me</h1>
+            <span>Digital mindset · Quiet focus · Personal space</span>
+        </div>
+
+        <div class="content">
+            <p>
+                I value <span class="highlight">privacy</span>, clarity and honesty.
+                I prefer meaningful conversations over noise and keep my circle small by choice.
+            </p>
+
+            <p>
+                I’m focused on my own path, my projects and my goals.
+                I don’t chase attention, drama or validation.
+            </p>
+
+            <p>
+                If we talk, it’s because there is a reason.
+                If we don’t, that’s intentional — not personal.
+            </p>
+        </div>
+
+        <div class="discord">
+            <a href="https://discord.gg/DEININVITELINK" target="_blank">
+                Discord
+            </a>
+        </div>
+
+        <div class="status">
+            <strong>Important:</strong> I am not looking for new friendships.  
+            Please respect my boundaries and personal space.
+        </div>
+
+        <div class="footer">
+            © 2026 · All rights reserved
+        </div>
+
+    </div>
+
+</body>
+</html>
