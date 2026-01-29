@@ -1,171 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About Me</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirito • Gaming</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-        body {
-            background: #0d0d0d;
-            color: #e5e5e5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-        .card {
-            width: 90%;
-            max-width: 750px;
-            background: #141414;
-            border: 1px solid #1f1f1f;
-            overflow: hidden;
-        }
+body{
+    background:#05070f;
+    color:#fff;
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+}
 
-        .banner {
-            position: relative;
-            height: 220px;
-            background: url("banner.jpg") center / cover no-repeat;
-        }
+/* ===== IMAGE BANNER ===== */
+.banner{
+    height:420px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:url("banner.jpg") center/cover no-repeat;
+}
 
-        .profile-pic {
-            position: absolute;
-            bottom: -55px;
-            left: 30px;
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 4px solid #141414;
-            background: url("profile.jpg") center / cover no-repeat;
-        }
+/* dark overlay */
+.banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(5,7,15,0.75),
+        rgba(5,7,15,0.85)
+    );
+}
 
-        .header {
-            padding: 80px 30px 25px;
-            border-bottom: 1px solid #1f1f1f;
-        }
+/* glow fog */
+.banner::after{
+    content:"";
+    position:absolute;
+    inset:-30%;
+    background:radial-gradient(circle at center, #7b5cff44, transparent 65%);
+    animation:fog 30s linear infinite;
+}
 
-        .header h1 {
-            font-size: 32px;
-            letter-spacing: 1px;
-        }
+@keyframes fog{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
 
-        .header span {
-            display: block;
-            margin-top: 6px;
-            color: #888;
-            font-size: 14px;
-        }
+.banner h1{
+    position:relative;
+    z-index:2;
+    font-family:Orbitron;
+    font-size:72px;
+    letter-spacing:6px;
+    background:linear-gradient(90deg,#7b5cff,#00e0ff,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 45px #7b5cffcc;
+}
 
-        .content {
-            padding: 30px;
-            line-height: 1.7;
-            font-size: 15px;
-        }
+/* ===== MAIN CONTAINER ===== */
+.container{
+    max-width:1200px;
+    margin:-140px auto 0;
+    padding:0 25px 100px;
+}
 
-        .content p {
-            margin-bottom: 20px;
-            color: #cfcfcf;
-        }
+.card{
+    background:rgba(15,20,40,0.9);
+    border-radius:26px;
+    padding:50px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 40px 120px #000;
+}
 
-        .highlight {
-            color: #ffffff;
-            font-weight: bold;
-        }
+/* ===== PROFILE ===== */
+.profile{
+    display:flex;
+    gap:50px;
+    flex-wrap:wrap;
+    align-items:center;
+}
 
-        /* Discord Button */
-        .discord {
-            padding: 0 30px 30px;
-        }
+.avatar{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #7b5cff;
+    box-shadow:0 0 40px #7b5cff99;
+}
 
-        .discord a {
-            display: inline-block;
-            text-decoration: none;
-            color: #ffffff;
-            border: 1px solid #5865F2;
-            padding: 12px 26px;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            transition: 0.2s ease;
-        }
+.info h2{
+    font-size:42px;
+    font-family:Orbitron;
+}
 
-        .discord a:hover {
-            background: #5865F2;
-            color: #ffffff;
-        }
+.info span{
+    color:#8fa2ff;
+    font-size:18px;
+}
 
-        .status {
-            border-top: 1px solid #1f1f1f;
-            padding: 20px 30px;
-            background: #101010;
-            font-size: 14px;
-            color: #9a9a9a;
-        }
+.info p{
+    margin-top:20px;
+    line-height:1.8;
+    color:#d5dcff;
+    max-width:720px;
+}
 
-        .status strong {
-            color: #ff4d4d;
-        }
+/* ===== PORTFOLIO SECTIONS ===== */
+.section-title{
+    margin-top:70px;
+    margin-bottom:30px;
+    font-family:Orbitron;
+    font-size:34px;
+    color:#7b9cff;
+}
 
-        .footer {
-            padding: 15px;
-            text-align: center;
-            font-size: 12px;
-            color: #555;
-        }
-    </style>
+/* ===== MOD CARDS ===== */
+.mods{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.mod{
+    background:linear-gradient(180deg,#141a38,#0b0f24);
+    border-radius:20px;
+    padding:25px;
+    transition:0.35s;
+    border:1px solid #ffffff15;
+}
+
+.mod:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 0 40px #7b5cff55;
+}
+
+.mod h3{
+    font-size:22px;
+    color:#9bb3ff;
+}
+
+.mod p{
+    margin-top:12px;
+    font-size:15px;
+    color:#cfd6ff;
+}
+
+.mod span{
+    display:inline-block;
+    margin-top:15px;
+    font-size:13px;
+    color:#00e0ff;
+}
+
+/* ===== SOCIAL ===== */
+.links{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.link{
+    padding:20px;
+    border-radius:16px;
+    text-align:center;
+    font-weight:700;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#7b5cff,#00e0ff);
+    transition:.25s;
+}
+
+.link:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 35px #00e0ff99;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#7f8cff;
+}
+</style>
 </head>
 <body>
 
-    <div class="card">
+<!-- ===== BANNER ===== -->
+<div class="banner">
+    <div class="stars"></div>
+    <h1>KIRITO</h1>
+</div>
 
-        <div class="banner">
-            <div class="profile-pic"></div>
-        </div>
+<div class="container">
+<div class="card">
 
-        <div class="header">
-            <h1>About Me</h1>
-            <span>Digital mindset · Quiet focus · Personal space</span>
-        </div>
-
-        <div class="content">
-            <p>
-                I value <span class="highlight">privacy</span>, clarity and honesty.
-                I prefer meaningful conversations over noise and keep my circle small by choice.
-            </p>
-
-            <p>
-                I’m focused on my own path, my projects and my goals.
-                I don’t chase attention, drama or validation.
-            </p>
-
-            <p>
-                If we talk, it’s because there is a reason.
-                If we don’t, that’s intentional — not personal.
-            </p>
-        </div>
-
-        <div class="discord">
-            <a href="https://discord.gg/DEININVITELINK" target="_blank">
-                Discord
-            </a>
-        </div>
-
-        <div class="status">
-            <strong>Important:</strong> I am not looking for new friendships.  
-            Please respect my boundaries and personal space.
-        </div>
-
-        <div class="footer">
-            © 2026 · All rights reserved
-        </div>
-
+<!-- ===== PROFILE ===== -->
+<div class="profile">
+    <img src="profile.jpg" class="avatar">
+    <div class="info">
+        <h2>Kirito - Gamer - Modder - Developer</h2>
+        <span>22 Years • PvP • Creator • Developer</span>
+        <p>
+            I'm Kirito, a passionate ARK: Survival Ascended player and mod developer.
+            I specialize in PvP-focused mods, custom systems, creatures and gameplay enhancements.
+            I also create Discord bots, websites and tools for the ARK community.
+        </p>
     </div>
+</div>
+
+<!-- ===== MOD PORTFOLIO ===== -->
+<h2 class="section-title">My ARK Mods</h2>
+<div class="mods">
+
+    <div class="mod">
+        <h3>⚔️ Titan PvP Systems</h3>
+        <p>Advanced PvP balance systems, damage scaling and custom rulesets.</p>
+        <span>ASA Mod</span>
+    </div>
+
+    <div class="mod">
+        <h3>🦖 Custom Creatures</h3>
+        <p>Unique dinos with abilities, particles and special PvP mechanics.</p>
+        <span>ASA Mod</span>
+    </div>
+
+    <div class="mod">
+        <h3>💎 Fibercraft Core</h3>
+        <p>Complete fibercraft economy, auto engrams and optimized gameplay.</p>
+        <span>Server Mod</span>
+    </div>
+
+    <div class="mod">
+        <h3>🧬 QoL Expansion</h3>
+        <p>Weight reduction, crafting tweaks and performance-friendly systems.</p>
+        <span>Quality of Life</span>
+    </div>
+
+</div>
+
+<!-- ===== SOCIAL ===== -->
+<h2 class="section-title">Connect With Me</h2>
+<div class="links">
+    <a class="link" href="https://discord.gg/DEINLINK" target="_blank">Discord</a>
+    <a class="link" href="https://www.tiktok.com/@DEINNAME" target="_blank">TikTok</a>
+    <a class="link" href="https://github.com/DEINNAME" target="_blank">GitHub</a>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2026 Kirito • 2026
+</footer>
 
 </body>
 </html>
